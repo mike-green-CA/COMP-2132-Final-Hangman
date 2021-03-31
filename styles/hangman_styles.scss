@@ -1,0 +1,298 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-image: url(../images/hangman-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+header{
+    display: flex;
+    width: auto;
+    height: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/hangman-background-header.jpg);
+    background-size: 100px 100px;
+    background-repeat: repeat-x;
+    border-bottom: 5px solid rgb(219, 219, 219);
+}
+
+.wrapper{
+    align-content: center;
+    justify-content: center;
+    width: 600px;
+    height: fill;
+    padding: 20px;
+    margin: 0 auto;
+    background-image: url(../images/hangman-background-forum.jpg);
+    background-size: 300px 300px;
+    background-repeat: repeat;
+    border: 5px solid rgb(219, 219, 219);
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+h2,h3{
+    text-align: center;
+    color: black;
+    size: 20px;
+    text-decoration: underline;
+}
+
+/* 
+* Our welcome pop up
+*/
+
+#pop-up{
+    width:400px;
+    padding:10px;
+    background-color: rgb(238, 241, 47);
+    color:black;
+    border:solid 1px black;
+    border-radius: 20px;
+    box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
+    position:absolute;
+    top:25%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:0;
+    pointer-events: none;
+}
+#btn-close{
+    border: rgba(139, 0, 0, 0.993);
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-weight: bold;
+    background-color: inherit;
+    color:inherit;
+    border:solid 1px white;
+    cursor:pointer;
+    pointer-events: all;
+}
+
+/*
+* Our play again pop up.
+*/
+#play-again-window{
+    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 550px;
+    height: 550px;
+    align-content: center;
+    text-align: center;
+    border: 5px double rgb(178, 255, 178);
+    background-color: rgb(43, 243, 43);
+    color: white;
+    font-weight: bold;
+}
+#results-message{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 50px;
+    color: white;
+    font-size: 50px
+}
+#the-word-was{
+    margin-top: 15%;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+#the-final-word{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 100px;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 50px;
+}
+#play-Again{
+    position: relative;
+    top: 30%;
+    bottom: 10%;
+}
+#play-button{
+    position: relative;
+    top: 30%;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: green;
+    border: solid 3px white;
+    border-radius: 25px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+
+/*
+* The blank lines.
+*/
+.the-word{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    width: 550px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+#the-hint{
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.blank-space{
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: rgb(242, 250, 127);
+    border-bottom: 4px solid black;
+}
+
+
+/* 
+* The game pictures and letters.
+*/
+
+.the-game-area{
+    display: inline-block;
+}
+
+.the-hang-man{
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+@mixin button_pallete {
+    border: 3px solid #beb6b6;
+    border-radius: 50px;
+    background-color: #424242;
+    color: #beb6b6;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+@mixin letter_box_pallete {
+    background: rgb(128, 100, 48);
+    border: 3px solid rgb(167, 167, 167);
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    justify-content: space-evenly;
+}
+    
+.constanants-box{
+    @include letter_box_pallete();
+    width: 66%;
+    height: 200px;
+    float: left;
+    
+    .five-constanants{
+        height: 40px;
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+    
+        .letters{
+            @include button_pallete();
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 25px;
+        }
+    }
+}
+
+
+.vowels-box{
+    @include letter_box_pallete();
+    width: 33%;
+    height: 200px;
+    height: 200px;
+    float: right;
+
+    .two-vowels{
+        display: flex;
+        height: 50px;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+
+        .letters{
+           @include button_pallete();
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+    }
+}
+
+/* The rules Drop down */
+
+.rules {
+    display: contents;
+    align-content: center;
+    align-items: center;
+    max-width: 400px;
+    max-height: 40px;
+    background-color: #e2ff3d;;
+    margin: 0 auto;
+}
+
+.how-to-play-tab {
+    max-height: 40px;
+    align-content: center;
+    background-color: #e2ff3d;
+    color: rgb(6, 85, 255);
+    border-bottom: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.the-rules{
+    background-color: #e2ff3d;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+
+footer{
+    display: block;
+    border: 5px solid rgb(219, 219, 219);
+    text-align: center;
+    color: blanchedalmond;
+    font-weight: bold;
+    background-color: rgba(36, 36, 36, 0.801);
+}

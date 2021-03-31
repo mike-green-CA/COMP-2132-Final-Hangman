@@ -1,0 +1,298 @@
+/* CSS Document */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-image: url(../images/hangman-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  width: auto;
+  height: 100px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/hangman-background-header.jpg);
+  background-size: 100px 100px;
+  background-repeat: repeat-x;
+  border-bottom: 5px solid #dbdbdb;
+}
+
+.wrapper {
+  align-content: center;
+  justify-content: center;
+  width: 600px;
+  height: fill;
+  padding: 20px;
+  margin: 0 auto;
+  background-image: url(../images/hangman-background-forum.jpg);
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  border: 5px solid #dbdbdb;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h2, h3 {
+  text-align: center;
+  color: black;
+  size: 20px;
+  text-decoration: underline;
+}
+
+/* 
+* Our welcome pop up
+*/
+#pop-up {
+  width: 400px;
+  padding: 10px;
+  background-color: #eef12f;
+  color: black;
+  border: solid 1px black;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px yellow, 5px 5px 5px black;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#btn-close {
+  border: rgba(139, 0, 0, 0.993);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  background-color: inherit;
+  color: inherit;
+  border: solid 1px white;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/*
+* Our play again pop up.
+*/
+#play-again-window {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  width: 550px;
+  height: 550px;
+  align-content: center;
+  text-align: center;
+  border: 5px double #b2ffb2;
+  background-color: #2bf32b;
+  color: white;
+  font-weight: bold;
+}
+
+#results-message {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 50px;
+  color: white;
+  font-size: 50px;
+}
+
+#the-word-was {
+  margin-top: 15%;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+}
+
+#the-final-word {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 100px;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+#play-Again {
+  position: relative;
+  top: 30%;
+  bottom: 10%;
+}
+
+#play-button {
+  position: relative;
+  top: 30%;
+  bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: green;
+  border: solid 3px white;
+  border-radius: 25px;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+/*
+* The blank lines.
+*/
+.the-word {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 550px;
+  height: 50px;
+  margin-top: 25px;
+}
+
+#the-hint {
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.blank-space {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  font-weight: bolder;
+  background-color: #f2fa7f;
+  border-bottom: 4px solid black;
+}
+
+/* 
+* The game pictures and letters.
+*/
+.the-game-area {
+  display: inline-block;
+}
+
+.the-hang-man {
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.constanants-box {
+  background: #806430;
+  border: 3px solid #a7a7a7;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  justify-content: space-evenly;
+  width: 66%;
+  height: 200px;
+  float: left;
+}
+
+.constanants-box .five-constanants {
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+}
+
+.constanants-box .five-constanants .letters {
+  border: 3px solid #beb6b6;
+  border-radius: 50px;
+  background-color: #424242;
+  color: #beb6b6;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.vowels-box {
+  background: #806430;
+  border: 3px solid #a7a7a7;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  justify-content: space-evenly;
+  width: 33%;
+  height: 200px;
+  height: 200px;
+  float: right;
+}
+
+.vowels-box .two-vowels {
+  display: flex;
+  height: 50px;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.vowels-box .two-vowels .letters {
+  border: 3px solid #beb6b6;
+  border-radius: 50px;
+  background-color: #424242;
+  color: #beb6b6;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+/* The rules Drop down */
+.rules {
+  display: contents;
+  align-content: center;
+  align-items: center;
+  max-width: 400px;
+  max-height: 40px;
+  background-color: #e2ff3d;
+  margin: 0 auto;
+}
+
+.how-to-play-tab {
+  max-height: 40px;
+  align-content: center;
+  background-color: #e2ff3d;
+  color: #0655ff;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.the-rules {
+  background-color: #e2ff3d;
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+
+footer {
+  display: block;
+  border: 5px solid #dbdbdb;
+  text-align: center;
+  color: blanchedalmond;
+  font-weight: bold;
+  background-color: rgba(36, 36, 36, 0.801);
+}
